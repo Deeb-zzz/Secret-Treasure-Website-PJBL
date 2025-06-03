@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Secret Treasure - PurrFruit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #d0d0d0;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #000;
+            margin: 0 10px;
+            font-weight: 500%;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #a0a0a0;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-subtitle {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            margin-bottom: 15px;
+        }
+
+        .buy-button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 200px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #333;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Character Grid */
+        .character-grid {
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .character-image {
+            width: 60%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 15px 20px;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .footer-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-icons img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .character-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="Shop.html"><div>Menu</div></a>
+        <div>
+            <a href="Shop.html">Shop</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Article.html">Article</a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <img src="img/Fpurrgfruit.png" alt="Under the Sea box" class="product-image">
+        <div class="product-details">
+            <h1 class="product-title">Secret Treasure - PurrPaws</h1>
+            <h2 class="product-subtitle">Harga</h2>
+            <p class="product-price">Rp 20.000,00</p>
+            <p class="product-description">Box yang berisi kejutan tergantung dengan keberuntungan anda.</p>
+            <a href="keranjang.html"><button class="buy-button">Beli</button></a>
+            <p class="note">*Tekan tombol diatas untuk membeli</p>
+        </div>
+    </div>
+
+    <h2>Barang bisa kalian dapatkan</h2>
+    <div class="character-grid">
+        <img src="img/WhatsApp Image 2025-06-01 at 10.57.04_232d8e81.jpg" alt="Character 1" class="character-image">
+        <img src="img/WhatsApp Image 2025-06-01 at 10.57.03_ca46d04a.jpg" alt="Character 2" class="character-image">
+        <img src="img/WhatsApp Image 2025-06-01 at 10.57.03_1740b585.jpg" alt="Character 3" class="character-image">
+        <img src="img/WhatsApp Image 2025-06-01 at 10.57.03_12c19b94.jpg" alt="Character 4" class="character-image">
+        <img src="img/WhatsApp Image 2025-06-01 at 10.56.50_8e921623.jpg" alt="Character 5" class="character-image">
+        <img src="img/WhatsApp Image 2025-06-01 at 10.56.49_cfcb07ae.jpg" alt="Character 6" class="character-image">
+        <img src="img/WhatsApp Image 2025-06-01 at 11.00.06_1716bbbe.jpg" alt="Character 7" class="character-image">
+        <img src="img/WhatsApp Image 2025-06-01 at 11.00.07_51c30176.jpg" alt="Character 7" class="character-image">
+    </div>
+
+    <div class="divider"></div>
+
+    <footer class="footer">
+        <div class="footer-left">Social Media</div>
+        <div class="footer-icons">
+            <img src="img/4922972.png">
+        </div>
+    </footer>
+</body>
+</html>

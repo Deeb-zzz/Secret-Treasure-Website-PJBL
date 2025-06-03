@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Secret Treasure</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Full Page Overlay for Navigation */
+        .page-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .page-overlay:hover {
+            background: rgba(0, 0, 0, 0.01);
+        }
+
+        /* Ensure interactive elements are above overlay */
+        .header,
+        .nav,
+        .search-btn,
+        .nav-right a,
+        .about-btn,
+        .social-icons {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Header Navigation */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-left {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-center {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-btn {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #333;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .nav-right a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.3s ease;
+        }
+
+        .nav-right a:hover {
+            color: #666;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .about-btn {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-btn:hover {
+            background: #333;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Products Section */
+        .products-section {
+            margin: 60px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Announcement Section */
+        .announcement-section {
+            margin: 100px 0;
+        }
+
+        .announcement-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .announcement-text {
+            font-size: 28px;
+            line-height: 2.0;
+            color: #000;
+            text-align: center;
+        }
+
+        .announcement-image {
+            text-align: center;
+        }
+
+        .announcement-image img {
+            width: 100%;
+            max-width: 300%;
+            height: auto;
+        }
+
+        /* Payment Methods Section */
+        .payment-section {
+            margin: 60px 0;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .payment-method {
+            text-align: center;
+        }
+
+        .payment-method img {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icon:hover {
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-right {
+                gap: 20px;
+            }
+
+            .main-title {
+                font-size: 36px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .announcement-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .main-title {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Full Page Overlay for Navigation -->
+    <div class="page-overlay" 
+         role="button" 
+         tabindex="0"
+         aria-label="Navigate to article page"
+         title="Click anywhere to go to article page"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <nav class="nav">
+                <div class="nav-left">Menu</div>
+                <div class="nav-center">
+            
+                </div>
+                <div class="nav-right">
+                    <a href="Shop.html">Shop</a>
+                    <a href="Gallery.html">Gallery</a>
+                    <a href="Article.html">Article</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1 class="main-title">Secret Treasure</h1>
+                <a href="Article.html"><button class="about-btn">Tentang kami</button></a>
+                <img src="img/WhatsApp Image 2025-05-31 at 18.47.04_1b6ada9d.jpg" alt="Cute axolotl character with strawberry background" class="hero-image">
+            </section>
+
+            <!-- Products Section -->
+            <section class="products-section">
+                <h2 class="section-title">Produk</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="img/Free Product Packaging Craft Box Mockup.png" alt="Under The Sea product box in blue" class="product-image">
+                        <h3 class="product-title">Under The sea</h3>
+                        <p class="product-description">Berisi kejutan di bawah laut</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="img/Fpurrgfruit.png" alt="PurrFruit product box in pink" class="product-image">
+                        <h3 class="product-title">PurrPaws</h3>
+                        <p class="product-description">Berisi hewan imut berbulu halus</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Announcement Section -->
+            <section class="announcement-section">
+                <h2 class="section-title">Announcement</h2>
+                <div class="announcement-content">
+                    <div class="announcement-text">
+                        <p>Produk kami akan dipamerkan dan dijual pada tanggal 4 Juni 2025 di RSG 1,2,3 SMKN 8 Semarang. Barang kami bersifat limited edition, jadi jangan sampai ketinggalan yaa !</p>
+                    </div>
+                    <div class="announcement-image">
+                        <img src="img/WhatsApp Image 2025-05-06 at 04.13.30_bf46c51b.jpg" alt="Treasure chest with question marks indicating mystery products">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Payment Methods Section -->
+            <section class="payment-section">
+                <h2 class="section-title">Metode pembayaran</h2>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <img src="img/Card.png" alt="BCA Bank payment method logo">
+                    </div>
+                    <div class="payment-method">
+                        <img src="img/Image (1).png" alt="Cash on Delivery payment method logo">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-title">Media Sosial</div>
+            <div class="social-icons">
+                <img src="img/4922972.png" alt="Instagram icon" class="social-icon">
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Full page navigation functionality
+        const pageOverlay = document.querySelector('.page-overlay');
+        
+        // Handle click navigation
+        pageOverlay.addEventListener('click', function() {
+            window.location.href = '#article';
+        });
+        
+        // Handle keyboard navigation for accessibility
+        pageOverlay.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                window.location.href = '#article';
+            }
+        });
+        
+        // Prevent overlay from interfering with interactive elements
+        const interactiveElements = document.querySelectorAll('button, a, input, select, textarea');
+        
+        interactiveElements.forEach(element => {
+            element.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+        });
+    </script>
+</body>
+</html>
